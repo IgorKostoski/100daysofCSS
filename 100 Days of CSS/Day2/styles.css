@@ -1,0 +1,136 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #fc6315;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+	$cubic-bezier: cubic-bezier(.29,.52,.48,.72);
+	.menu {
+		width: 80px;
+		cursor: pointer;
+		.line-1,.line-2,.line-3 {
+			width: 100%;
+			height: 10px;
+			background: #fff;
+			border-radius: 4px;
+			box-shadow: 0 2px 10px 0 rgba(0,0,0,.3);
+		}
+		
+		.line-2 {
+			margin: 15px 0;
+			animation: i-line-2 .7s $cubic-bezier forwards;
+		}
+		.line-1 {
+			animation: i-line-1 .7s $cubic-bezier forwards;
+		}
+		.line-3 {
+			animation: i-line-3 .7s $cubic-bezier forwards;
+		}
+		
+	}
+	
+	.close {
+		.line-1 {
+			animation: c-line-1 .7s $cubic-bezier forwards;
+		}
+		.line-2 {
+			animation: c-line-2 .7s $cubic-bezier forwards;
+		}
+		.line-3 {
+			animation: c-line-3 .7s $cubic-bezier forwards;
+		}
+	}
+}
+
+@keyframes c-line-1 {
+	0% {
+		transform: translate3d(0,0,0) rotate(0deg);
+	}
+	50% {
+		transform: translate3d(0,25px,0) rotate(0deg);
+	}
+	100% {
+		transform: translate3d(0,25px,0) rotate(45deg);
+	}
+}
+
+@keyframes c-line-3 {
+	0% {
+		transform: translate3d(0,0,0) rotate(0deg);
+	}
+	50% {
+		transform: translate3d(0,-25px,0) rotate(0deg);
+	}
+	100% {
+		transform: translate3d(0,-25px,0) rotate(135deg);
+	}
+}
+
+
+@keyframes c-line-2 {
+	0% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	100% {
+		transform: scale(0);
+		opacity: 0;
+	}
+}
+
+@keyframes i-line-1 {
+	0% {
+		transform: translate3d(0,25px,0) rotate(45deg);
+	}
+	50% {
+		transform: translate3d(0,25px,0) rotate(0deg);
+	}
+	100% {
+		transform: translate3d(0,0,0) rotate(0deg);
+	}
+}
+
+@keyframes i-line-3 {
+	0% {
+		transform: translate3d(0,-25px,0) rotate(135deg);
+	}
+	50% {
+		transform: translate3d(0,-25px,0) rotate(0deg);
+	}
+	100% {
+		transform: translate3d(0,0,0) rotate(0deg);
+	}
+}
+
+
+@keyframes i-line-2 {
+	0% {
+		transform: scale(0);
+		opacity: 0;
+	}
+	100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+}
