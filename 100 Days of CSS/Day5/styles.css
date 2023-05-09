@@ -1,6 +1,7 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400);
 
-
+$red:  #FB7373;
+$blue: #7CA2FF;
 
 .frame {
     position: absolute;
@@ -22,5 +23,109 @@
 }
 
 .card {
-    
+    position: absolute;
+    top: 90px; 
+    left: 60px;
+    height: 220px;
+    width: 280px;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 10px 10px 15px 0
+    rgba(0,0,0,0.3);
+    overflow: hidden;
+
+    .header{
+        position: relative;
+        height: 60px;
+        width: 100%;
+        background: #F1BA64;
+        color: #fff;
+
+        .big{
+            position: absolute;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+        }
+        
+        .small {
+            position: absolute;
+            font-weight: 400;
+            font-size: 11px;
+        }
+
+        .title {
+            top: 12px;
+            left: 15px;
+        }
+
+        .date {
+            top: 30px;
+            left: 15px;
+        }
+
+        .type {
+            top: 14px;
+            right: 15px;
+        }
+
+        .value {
+            top: 28px;
+            right: 15px;
+        }
+    }
+
+    .parameter {
+        text-align: right;
+        padding: 10px 0 14px 0;
+
+        span {
+            position: relative;
+            font-size: 9px;
+            color: #606060;
+            line-height: 13px;
+            padding: 0 10px 0 25px;
+
+        }
+        span:before {
+            position: absolute;
+            left: 6px;
+            top: 6px;
+            display: block;
+            content: '';
+            width: 11px;
+            height: 3px;
+            border-radius: 3px;
+        }
+
+        .red:before {
+            background: $red;
+        }
+
+        .blue:before {
+            background: $blue;
+        }
+    }
+
+    .statistic {
+        position: relative;
+        height: 81px;
+        width: 260px;
+        margin: 0 auto;
+
+        .line-1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: #F2F2F2;
+        }
+
+        .line-2 {
+            @extend .line-1;
+            top: 40px;
+        }
+    }
+
 }
