@@ -1,0 +1,157 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+*{
+    padding: 0;
+    margin: 0;
+}
+
+:root {
+    --frame-background: rgb(76,76,76);
+    --clock-border-color: rgb(58,58,58);
+    --clock-background: rgb(36,36,36);
+
+
+    --mv-circle-color: rgb(248,91,91);
+    --white: rgb(255,255,255);
+
+    --clock-size: 212px
+}
+
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0rgba(0,0,0,0.1);
+    overflow: hidden;
+    background: #fff;
+    color: #333;
+    font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	background: var(--frame-background);
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.clock {
+    width: var(--clock-size);
+    height: var(--clock-size);
+    background: var(--clock-background);
+    border-radius: 50%;
+    border: 7px solid var(--clock-border-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .clock__show {
+        box-sizing: border-box;
+        width: calc(var(--clock-size) - 10%);
+        height: calc(var(--clock-size) - 10%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3px;
+        flex-direction: column;
+        color: white;
+        border-radius: 50%;
+        background-image:url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='100' ry='100' stroke='white' stroke-width='4' stroke-dasharray='2%2c 8' stroke-dashoffset='0' stroke-linecap='butt'/%3e%3c/svg%3e");
+
+    }
+
+    p {
+        font-weight: 600;
+    }
+
+    .date {
+        margin: 0;
+        padding: 0;
+        font-size: 12px;
+        font-weight: 500;
+    }
+
+    .time {
+        font-size: 40px;
+    }
+
+    .heart {
+        display: flex;
+        justify-content: space-evenly;
+        gap: 1em;
+        font-size: 12px;
+        p{
+            font-weight: 500;
+        }
+
+        div{
+            display: flex;
+            gap: 4px;
+            align-items: center;
+        }
+    }
+}
+
+.heartbeatt {
+    animation: heart-beat 1s ease-in-out infinite;
+}
+
+
+.spinner {
+    position: absolute;
+    width: var(--clock-size);
+    height: var(--clock-size);
+
+    circle {
+        r: 47%;
+        fill: none;
+        stroke: var(--mv-circle-color);
+        stroke-width: 2px;
+        stroke-dasharray: 625;
+        transform: rotate(-90deg);
+        transform-origin: center center;
+        animation: spinner 4s linear infinite;
+    }
+}
+
+@keyframes spinner {
+    from {
+        stroke-dashoffset: 625;
+        transform: rotate(-90deg) scaleY(1);
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+        transform: rotate(-90deg) scaleY(1);
+    }
+
+    50.001% {
+        transform: rotate(-90deg) scaleY(-1);
+    }
+    to {
+        stroke-dashoffset: 625;
+        transform: rotate(-90deg) scaleY(-1);
+    }
+    
+    
+}
+
+
+@keyframes heart-beat {
+    0% {
+        transform: scale(1);
+        fill: black;
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+    
+}
