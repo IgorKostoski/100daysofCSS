@@ -1,0 +1,96 @@
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+      box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+      overflow: hidden;
+    background: #fff;
+      display:flex;
+      align-items:center;
+      justify-content: center;
+  }
+  .background{
+      position: absolute;
+      top: 246px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: #89826e;
+  }
+  .center{
+      animation: walking .8s ease-out 1s;
+      animation-fill-mode: both;
+      width: 90%;
+      height: 90%;
+      background: #699ed1;
+      border-radius:50%;
+  }
+  .jordan{
+      position: absolute;
+      top:0;
+      left: 147px;
+      width: 151px;
+      height: 245px;
+      transform-origin: 50% 0;
+      .sneakers{
+          position: absolute;
+          width: 191px;
+          left: -40px;
+          bottom: -54px;
+          transform-origin:0 95%;
+      }
+  }
+  .on{
+      animation: movement 2s ease-in-out infinite;
+      .sneakers{
+          animation: pause 2s ease-in-out infinite;
+          filter: invert(0%) brightness(64%) contrast(96%);
+      }
+  }
+  .off{
+      animation: movement 2s ease-in-out 1s infinite;
+      .sneakers{
+          animation: pause 2s ease-in-out 1s infinite
+      }
+  }
+  
+  
+  
+  @keyframes walking{
+      0%{
+          opacity: 0;
+      }
+      100%{
+          opacity: 1;
+      }
+  }
+  @keyframes movement{
+      0%{
+          transform: rotate(-22deg);
+      }
+      50%{
+          transform: rotate(40deg);
+      }
+      100%{
+          transform: rotate(-22deg);
+      }
+  }
+  @keyframes pause{
+      0%, 100%{
+          transform: rotate(-10deg) translateY(-8px) translateX(6px)
+      }
+      25%{
+          transform: rotate(8deg) translateY(-16px) translateX(0px)
+      }
+      50%{
+          transform: rotate(10deg) translateY(-20px) translateX(10px)
+      }
+      75%{
+          transform: rotate(0deg) translateY(-80px) translateX(0px)
+      }
+  }
