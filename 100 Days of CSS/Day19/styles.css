@@ -1,0 +1,113 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+$burgundy: #4f3130;
+$granate: #753742;
+$ladrillo: #aa5042;
+
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: $ladrillo;
+	// color: #333;
+	font-family: "Open Sans", Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	// border: 1px solid;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 5px;
+}
+
+.container {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+	width: 200px;
+	height: 100px;
+}
+
+input[type="radio"] {
+	display: none;
+}
+
+.circle {
+	box-sizing: border-box;
+	position: absolute;
+	z-index: 5;
+	left: 50px;
+	width: 15px;
+	height: 15px;
+	border: 2px solid #fff;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
+.marcado {
+	box-sizing: border-box;
+	position: absolute;
+	z-index: 5;
+	left: 50px;
+	width: 15px;
+	height: 15px;
+	border: 2px solid #fff;
+	border-radius: 15%;
+	background-color: #fff;
+	cursor: pointer;
+}
+
+#c2 {
+	left: 100px;
+}
+
+#c3 {
+	left: 150px;
+}
+
+.fondo {
+	position: absolute;
+	width: 400px;
+	height: 400px;
+	background-color: $burgundy;
+	box-sizing: content-box;
+	border-left: 400px solid $ladrillo;
+	border-right: 400px solid $granate;
+	transition: all 1s ease;
+	transform: translateX(0px);
+}
+
+#c1:checked ~ .fondo {
+	transform: translateX(0px);
+}
+#c2:checked ~ .fondo {
+	transform: translateX(-400px);
+}
+#c3:checked ~ .fondo {
+	transform: translateX(-800px);
+}
+
+#c1:checked ~ .marcado {
+	transform: translateX(0px);
+}
+#c2:checked ~ .marcado {
+	transform: translateX(50px);
+}
+#c3:checked ~ .marcado {
+	transform: translateX(100px);
+}
