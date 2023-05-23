@@ -1,0 +1,213 @@
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:600,400,300);
+
+// use only the available space inside the 400x400 frame
+@each $nth in 1, 2, 3 {
+	@property --value-#{$nth} {
+		syntax: "<integer>";
+		initial-value: 0;
+		inherits: false;
+	}
+}
+
+@mixin counter($nth) {
+	$value: 2758;
+
+	@if $nth == 2 {
+		$value: 8563;
+	}
+	@elseif $nth == 3 {
+		$value: 6;
+	}
+
+	@keyframes counter-#{$nth} {
+		0% {
+			--value-#{$nth}: 0;
+		}
+		100% {
+			--value-#{$nth}: #{$value};
+		}
+	}
+
+	animation: counter-#{$nth} 2.5s ease 0s forwards;
+}
+
+@mixin draw($nth) {
+	$dasharray: 630;
+
+	@if $nth == 2 {
+		$dasharray: 500;
+	}
+	@elseif $nth == 3 {
+		$dasharray: 440;
+	}
+
+	@keyframes draw-#{$nth} {
+		0% {
+			stroke-dasharray: 350;
+		}
+
+		100% {
+			stroke-dasharray: $dasharray;
+		}
+	}
+
+	animation: draw-#{$nth} 2.5s ease 0s forwards;
+}
+
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+	overflow: hidden;
+	background: #28404e;
+	background: -moz-linear-gradient(top, #28404e 0%, #1c2e38 100%);
+	background: -webkit-linear-gradient(top, #28404e 0%, #1c2e38 100%);
+	background: linear-gradient(to bottom, #28404e 0%, #1c2e38 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#28404e', endColorstr='#1c2e38',GradientType=0 );
+	color: #fff;
+	font-family: "Open Sans", Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+* {
+	margin: 0;
+	text-align: center;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+.headline {
+	font-weight: 600;
+	font-size: 24px;
+	text-transform: uppercase;
+	text-align: center;
+	line-height: 22px;
+
+	.small {
+		font-weight: 300;
+		font-size: 16px;
+	}
+}
+
+circle {
+	stroke-width: 6px;
+	fill: transparent;
+	cx: 40;
+	cy: 40;
+	r: 37;
+}
+
+.fix {
+	stroke: #1c2a32;
+}
+
+.fill-up {
+	stroke: #5ce1ec;
+	stroke-dasharray: 350;
+	stroke-dashoffset: 350;
+	stroke-linecap: round;
+	transform: rotate(-90deg);
+	transform-origin: center;
+}
+
+.charts {
+	margin-top: 25px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-evenly;
+
+	.text {
+		position: absolute;
+		width: 100%;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		font-size: 17px;
+		text-align: center;
+		font-weight: 400;
+		line-height: 16px;
+	}
+
+	.steps {
+		margin-right: 20px;
+	}
+
+	.km {
+		margin-left: 20px;
+	}
+
+	& > div {
+		width: 80px;
+		position: relative;
+
+		@each $nth in 1, 2, 3 {
+			&:nth-child(#{$nth}) {
+				.fill-up {
+					@include draw($nth);
+				}
+
+				.value {
+					counter-reset: value-#{$nth} var(--value-#{$nth});
+					@include counter($nth);
+
+					&:after {
+						@if $nth == 3 {
+							content: counter(value-#{$nth}) ".2";
+						} @else {
+							content: counter(value-#{$nth});
+						}
+					}
+				}
+			}
+		}
+
+		&:first-child {
+			width: 100%;
+			margin-bottom: 25px;
+
+			circle {
+				stroke-width: 10px;
+				fill: transparent;
+				cx: 60;
+				cy: 60;
+				r: 52;
+			}
+
+			.fill-up {
+				stroke: #27e1ae;
+			}
+
+			.text {
+				line-height: 25px;
+			}
+
+			.unit {
+				font-size: 14px;
+				color: #648192;
+			}
+
+			.value {
+				font-size: 24px;
+			}
+		}
+	}
+}
+
+.unit {
+	font-size: 12px;
+	color: #648192;
+}
