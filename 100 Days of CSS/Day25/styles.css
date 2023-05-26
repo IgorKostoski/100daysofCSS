@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans+Narrow:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Sans:wght@700&display=swap');
+body {
+    background-color: #242424;
+    font-family: 'PT Sans Narrow', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.frame {
+    width: 400px;
+    height: 400px;
+    background: white;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.abs {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+/*_____(Credits)_____*/
+
+.credits {
+    color: aliceblue;
+    position: absolute;
+    top: 95%;
+    left: 2%;
+}
+
+
+/*_____(Root Element)_____*/
+
+:root {
+    --main-color: #242424;
+}
+
+input {
+    display: none;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://www.railpass.com/sites/default/files/2016-06/GERMANY.jpg');
+    background-size: 71%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/*_____(content)_____*/
+
+.frame:hover .card-container {
+    transform: rotateY( 180deg);
+}
+
+.card-container {
+    width: 60%;
+    height: 40%;
+    border-radius: 2%;
+    transform-style: preserve-3d;
+    /*(imp)*/
+    transition: transform 1s;
+    
+}
+
+.card-back,
+.card-front {
+    position: absolute;
+    backface-visibility: hidden;
+    /*(imp)*/
+}
+
+.card-front {
+    filter: drop-shadow(0 0 5px red);
+    animation: myAnim 2s infinite;
+    position: absolute;
+    left: 11px;
+    top: 76px;
+     
+    
+}
+
+.card-back {
+    width: 100%;
+    height: 100%;
+    transform: rotateY( 180deg);
+    /*(imp)*/
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.cb-header {
+    background-image: url('https://lh3.googleusercontent.com/p/AF1QipOS-KHltY1V1woBfx6RGByFKYJK3aF4ij2NAQQc=s1360-w1360-h1020');
+    background-size: 100%;
+    background-position: 0 -30px;
+    background-repeat: no-repeat;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 100%;
+    height: 35%;
+}
+
+.cb-info {
+    background-color: hsl(174, 38%, 99%);
+    width: 100%;
+    height: 60%;
+}
+
+.cbi-name {
+    font-family: 'PT Sans', sans-serif;
+    color: #323B3C;
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0;
+    margin: 23px 0 0 0;
+}
+
+.cbi-address {
+    color: #516163;
+    font-size: 0.9rem;
+    text-align: center;
+    padding: 0;
+    margin: 0 0 0 0;
+    line-height: 1;
+}
+
+.cb-btns {
+    width: 100%;
+    height: 25%;
+    display: flex;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+.cb-btns button {
+    background-color: hsl(174, 38%, 99%);
+    width: 50%;
+    border: none;
+    font-size: 0.6rem;
+    letter-spacing: 1.3px;
+    font-weight: 700;
+    cursor: pointer;
+    color: #516163;
+    text-transform: uppercase;
+}
+
+.cb-btns button:first-child {
+    border-bottom-left-radius: 5px;
+}
+
+.cb-btns button:last-child {
+    border-bottom-right-radius: 5px;
+}
+
+.cb-btns button:hover {
+    background-color: #CCE8E5;
+}
+
+
+/*_____(animation)_____*/
+
+@keyframes myAnim {
+    0% {
+        transform: scale(1)translate(-50%, -50%);
+    }
+    50% {
+        transform: scale(1.1)translate(-50%, -50%);
+        filter: drop-shadow(0 0 20px red);
+    }
+    100% {
+        transform: scale(1)translate(-50%, -50%);
+    }
+}
