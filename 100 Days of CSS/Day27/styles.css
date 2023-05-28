@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Bad+Script&display=swap");
+
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: linear-gradient(#ff9a8a, #f4bb44);
+	color: #333;
+	font-family: "Bad Script", cursive;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	width: 250px;
+	height: 280px;
+	background: #fefae1;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	border-radius: 4px;
+}
+
+li {
+	position: relative;
+	left: -15px;
+	margin-bottom: 15px;
+	list-style: none;
+	text-align: justify;
+	input[type="checkbox"] {
+		display: none;
+	}
+	.circle {
+		width: 10px;
+		height: 10px;
+		border: 1px solid #333;
+		border-radius: 50%;
+	}
+	.fa-circle-check {
+		width: 10px;
+		height: 10px;
+		transform: scale(0) translatex(18px);
+		transition: all 1s ease;
+	}
+	label {
+		cursor: pointer;
+		display: flex;
+		gap: 5px;
+	}
+	[id^="task"]:checked ~ label {
+		text-decoration: line-through;
+		color: #707070;
+		transition: all 1s ease;
+		.circle {
+			transform: scale(0);
+			transition: all 1s ease;
+		}
+		.fa-circle-check {
+			transform: scale(1) translatex(-18px);
+			color: green;
+			transition: all 1s ease;
+		}
+	}
+}
