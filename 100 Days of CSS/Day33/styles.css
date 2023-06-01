@@ -1,0 +1,91 @@
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 1px 2px 10px 0
+    rgba(0,0,0,0.3);
+    overflow: hidden;
+    background: #75C1E8;
+}
+
+
+.sun {
+    position: absolute;
+    height: 128px;
+    width: 128px;
+    background-color: #FFD93C;
+    box-shadow: 
+    0 0 60px 30px #FFD93C, /* inner white */
+    0 0 100px 60px
+    rgba(214,176,5); /* outer cyan */
+    border-radius: 50%;
+    right: 325px;
+    bottom: 320px;
+    border-radius: 50%;
+    -webkit-animation: moveRight 60s linear infinite alternate both;
+          animation: moveRight 60s linear infinite alternate both;
+
+    
+}
+
+.cloud-big, .cloud-small, .cloud-medium {
+    position: absolute;
+    z-index: 5;
+    top: 118px;
+    left: 280px;
+    -webkit-animation: moveLeft 60s linear infinite alternate both;
+          animation: moveLeft 60s linear infinite alternate both;
+
+}
+
+
+.cloud-medium {
+    top: 89px;
+    left: 50px;
+
+}
+
+
+.cloud-small {
+    top: 74px;
+    left: 195px;
+}
+
+@-webkit-keyframes moveLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-300%);
+    }
+  }
+  
+  @keyframes moveLeft {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-300%);
+    }
+  }
+  @-webkit-keyframes moveRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+  @keyframes moveRight {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
