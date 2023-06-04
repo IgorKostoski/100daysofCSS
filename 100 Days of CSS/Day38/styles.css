@@ -1,0 +1,118 @@
+$dark: #9859B2;
+$light: #fff;
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;  
+    border-radius: 6px;
+    box-shadow: 1px 2px 10px 0px rgba(0, 0, 0, 0.3);
+    background: $dark;
+    cursor: pointer;
+    overflow:  hidden;
+
+    .center-dark {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        background: transparent;
+        border-radius: 50%;
+        border: 2px solid $light;
+        width: 120px;
+        height: 120px;
+    }
+
+    .needle {
+        position: absolute;
+        top: 160px;
+        left: 189.5px;
+
+        .north {
+            stroke: $dark;
+            stroke-width: 1px;
+            fill: $light;
+        }
+
+        .south {
+            stroke: $light;
+            stroke-width: 1px;
+            fill: $dark;
+        }
+    }
+
+    .dark {
+        animation: light-to-dark 1s linear forwards;
+    }
+
+    .light {
+        animation: dark-to-light 1s linear forwards;
+    }
+
+    .mask-right {
+        position: absolute;
+        top: -10px;
+        left: 200px;
+        
+        .mask {
+            fill: #fff;
+        }
+
+        .foreground-right {
+            fill: #fff;
+            mask: url(#maskRight);
+        }
+
+        .center-right {
+            fill: #fff;
+            stroke: #9859B2;
+            stroke-width: 4px;
+            mask: url(#maskRight);
+        }
+        
+    }
+
+    .mask-left {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        
+        .mask {
+            fill: #fff;
+        }
+
+        .foreground-left {
+            fill: #fff;
+            mask: url(#maskLeft);
+        }
+
+        .center-left {
+            fill: #fff;
+            stroke: #9859B2;
+            stroke-width: 4px;
+            mask: url(#maskLeft);
+        }
+    }
+}
+
+@keyframes light-to-dark {
+    0% {
+        transform: rotate(180deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes dark-to-light {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}

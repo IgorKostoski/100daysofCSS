@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Transition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="frame">
+        <div class="center-dark"></div>
+      
+        <svg class="mask-right" width="210" height="420" viewBox="0 0 210 420">
+          <defs>
+            <mask id="maskRight">
+              <polygon class="mask" id="polyRight" points="0,210 0,0 0,0 0,0 0,0" />
+            </mask>
+            <animate id="animRight-light" xlink:href="#polyRight" attributeName="points" begin="indefinite" dur="1s" fill="freeze"
+                     values="0,210 0,0 0,0 0,0 0,0; 
+                             0,210 0,0 210,0 210,0 210,0; 
+                             0,210 0,0 210,0 210,210 210,210;
+                             0,210 0,0 210,0 210,420 210,420;
+                             0,210 0,0 210,0 210,420 0,420"
+                     keyTimes="0; 0.25; 0.5; 0.75; 1" />
+            <animate id="animRight-dark" xlink:href="#polyRight" attributeName="points" begin="indefinite" dur="1s" fill="freeze"
+                     values="0,210 0,0 210,0 210,420 0,420; 
+                             0,210 0,0 210,0 210,420 210,420; 
+                             0,210 0,0 210,0 210,210 210,210;
+                             0,210 0,0 210,0 210,0 210,0;
+                             0,210 0,0 0,0 0,0 0,0"
+                     keyTimes="0; 0.25; 0.5; 0.75; 1" />
+          </defs>
+          <rect class="foreground-right" x="-10" y="10" width="210" height="400" rx="6" ry="6"/>
+          <circle class="center-right" cx="0" cy="210" r="60" />
+        </svg>
+      
+      
+        <svg class="mask-left" width="210" height="420" viewBox="0 0 210 420">
+          <defs>
+            <mask id="maskLeft">
+              <polygon class="mask" id="polyLeft" points="210,210 210,420 210,420 210,420 210,420" />
+            </mask>
+            <animate id="animLeft-light" xlink:href="#polyLeft"  attributeName="points" 
+                     begin="indefinite" dur="1s" fill="freeze"
+                     values="210,210 210,420 210,420 210,420 210,420; 
+                             210,210 210,420 0,420 0,420 0,420; 
+                             210,210 210,420 0,420 0,210 0,210;
+                             210,210 210,420 0,420 0,0 0,0;
+                             210,210 210,420 0,420 0,0 210,0"
+                     keyTimes="0; 0.25; 0.5; 0.75; 1" />
+            <animate id="animLeft-dark" xlink:href="#polyLeft"  attributeName="points" begin="indefinite" dur="1s" fill="freeze"
+                     values="210,210 210,420 0,420 0,0 210,0;210,210 210,420 0,420 0,0 0,0;210,210 210,420 0,420 0,210 0,210;210,210 210,420 0,420 0,420 0,420;210,210 210,420 210,420 210,420 210,420"
+                     keyTimes="0; 0.25; 0.5; 0.75; 1" />
+          </defs>
+          <rect class="foreground-left" x="10" y="10" width="210" height="400" rx="6" ry="6"/>
+          <circle class="center-left" cx="210" cy="210" r="60" />
+        </svg>
+      
+        <svg class="needle" width="21" height="80" viewBox="0 0 21 80">
+          <path class="north" d="M10.5,0, 21,40 H0Z" />
+          <path class="south" d="M0,40 21,40 10.5,80Z" />
+        </svg>
+      </div>
+      
+    
+
+
+
+
+    <script src="main.js"></script>
+</body>
+</html>
