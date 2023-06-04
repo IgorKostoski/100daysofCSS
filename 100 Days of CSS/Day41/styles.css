@@ -1,0 +1,121 @@
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300);
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #3f3f3f;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+	
+	width: 300px;
+	height: 185px;
+	background: rgb(251 250 245);
+	box-shadow: 5px 7px 26px -4px rgba(0,0,0,0.75);
+	overflow: hidden;
+	border-radius: 3px;
+	
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	color: #415868;
+	
+	gap: 10px;
+	
+	
+	&.show {
+		animation: show 0.7s ease-in-out forwards;
+	}
+	
+	&.hide {
+		animation: hide 0.7s ease-in-out forwards;
+	}
+	
+	.warning-icon {
+		margin-top: 20px;
+		fill: #f65656;
+		width: 40px;
+	}
+	
+	h2 {
+		font-size: 18px;
+		font-weight: 400;
+	}
+	
+	p {
+		font-size: 14px;
+		font-weight: 300;
+		text-align: center;
+		padding: 0 40px;
+	}
+	
+	button {
+		flex: 1;
+		width: 100%;
+		border: none;
+		color: rgb(251 250 245);
+		background: #f65656;
+		transition: background 0.4s ease-in-out;
+		
+		&:hover {
+			background: #EC3434;
+		  cursor: pointer;
+		}
+	}
+}
+
+@keyframes show {
+	0% {
+		transform: translate(-50%,-50%) scale(0);
+	}
+	50% {
+		transform: translate(-50%,-50%) scale(1.1);
+	}
+	80% {
+		transform: translate(-50%,-50%) scale(.95);
+	}
+	100% {
+		transform: translate(-50%,-50%) scale(1);
+	}
+}
+
+@keyframes hide {
+	0% {
+		transform: translate(-50%,-50%) scale(1);
+	}
+	30% {
+		transform: translate(-50%,-50%) scale(1.1);
+	}
+	100% {
+		transform: translate(-50%,-50%) scale(0);
+	}
+}
+
+
+
