@@ -1,0 +1,95 @@
+*{
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+
+}
+
+:root {
+    --green: #5FD17A;
+}
+
+
+.frame {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 400px;
+    height: 400px;
+    margin-top: -200px;
+    margin-left: -200px;
+    border-radius: 2px;
+    box-shadow: 4px 8px 16px 0
+    rgba(0,0,0,0.1);
+    overflow: hidden;
+    background: #5A717B;
+}
+
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn {
+    width: 40px;
+    height: 40px;
+    background: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    box-shadow: 2px 2px 4px 0 #00000040,2px 2px 4px 0 #00000040 inset;
+    position: absolute;
+    transition: all 0.3s ease-in-out;
+    z-index: 1000;
+    cursor: pointer;
+
+    
+}
+
+
+.click {
+    border-width: 14px;
+    background: #5FD17A;
+    box-shadow: 2px 2px 4px 0 #00000040,2px 2px 4px 0 #00000000 inset;
+}
+
+
+.sparkles {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    opacity: 0;
+    transform: scale(0);
+}
+
+
+.sparkle {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.sparkle::before {
+    content: "";
+    width: 2px;
+    height: 16px;
+    position: absolute;
+    background: #fff;
+    left: 50%;
+}
+
+.big {
+    animation: big 0.5s ease-in-out forwards;
+}
+
+
+@keyframes big {
+    0%{transform: scale(0);opacity: 1;}
+    100%{transform: scale(1);opacity: 0;}
+}
