@@ -1,0 +1,63 @@
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+// use only the available space inside the 400x400 frame
+.frame {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 400px;
+	height: 400px;
+	margin-top: -200px;
+	margin-left: -200px;
+	border-radius: 2px;
+	box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	background: #222222;
+	color: #333;
+	font-family: "Open Sans", Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@for $i from 1 through 18 {
+		$deg: (180 / 18) * ($i - 1);
+		
+		.box-#{$i} {
+			position: absolute;
+			width: 300px;
+			height: 300px;
+			border: solid white 1px;
+			animation: spin-#{$i} 6s infinite;
+			filter: blur;
+		}
+
+		@keyframes spin-#{$i} {
+			0% {
+				transform: rotate(($deg)+ deg);
+				width: 100px;
+				border-radius: 50%;
+			}
+			50% {
+				transform: rotate(0deg);
+				border-radius: 0%;
+				width: 300px
+			}
+			100% {
+				transform: rotate(($deg)+ deg);
+				width: 100px;
+				border-radius: 50%;
+			}
+		}
+	}
+}
