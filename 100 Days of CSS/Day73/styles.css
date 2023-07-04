@@ -1,0 +1,93 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+$font-size: 30px;
+$margin: 10px;
+$content-height: 2 * $margin + $font-size;
+
+$number_of_items: 7;
+$animation_time: 0.6;
+$animation_delay: 1;
+$total_animation_time: $number_of_items * ($animation_time + $animation_delay);
+
+@keyframes rolling_carousel {
+  0% {
+    transform: translateY(0);
+  }
+	
+	@for $i from 1 through $number_of_items {
+		#{(($i * $animation_time / $total_animation_time) + (($i - 1) * $animation_delay / $total_animation_time)) * 100}%,
+		#{(($i * $animation_time / $total_animation_time) + ($i * $animation_delay / $total_animation_time)) * 100}% {
+			transform: translateY(#{$i * $content_height * -1});
+		}
+	}
+  
+}
+
+$colors: #181f33, #1e2740, #242f4d, #23eb3e, #23ebaf, #23d7eb, #121726;
+@keyframes rolling_background_color {
+  0% {
+		background-color: #121726;
+  }
+	
+	@for $i from 1 through $number_of_items {
+		#{(($i * $animation_time / $total_animation_time) + (($i - 1) * $animation_delay / $total_animation_time)) * 100}%,
+		#{(($i * $animation_time / $total_animation_time) + ($i * $animation_delay / $total_animation_time)) * 100}% {
+			background-color: nth($colors, $i);
+		}
+	}
+}
+
+.frame {
+	--background-color: #6b81e3;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 2px;
+  box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  background-color: var(--background-color);
+  font-family: "Open Sans", Helvetica, sans-serif;
+	color: #fff;
+	font-weight: 600;
+	text-shadow: 1px 1px 3px #000;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+	animation: rolling_background_color #{$total_animation_time}s infinite;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.content {
+  display: flex;
+  gap: 10px;
+  font-size: $font-size;
+	overflow: hidden;
+	
+	p {
+		margin: 0;
+	}
+}
+
+.static {
+  height: $content-height;
+}
+
+.carousel {
+  height: $content-height;
+	animation: rolling_carousel #{$total_animation_time}s infinite;
+}
+
+
+.carousel p {
+  height: $content-height;
+	padding-right: 10px;
+}
