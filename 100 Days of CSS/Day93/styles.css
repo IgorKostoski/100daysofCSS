@@ -1,0 +1,113 @@
+// delete the following line if no text is used
+// edit the line if you wanna use other fonts
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+// use only the available space inside the 400x400 frame
+.frame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  margin-top: -200px;
+  margin-left: -200px;
+  border-radius: 6px;
+	box-shadow: 4px 8px 16px 0 rgba(0,0,0,0.1);
+	overflow: hidden;
+  background: #F57E15;
+  color: #333;
+	font-family: 'Open Sans', Helvetica, sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.lock-head {
+	width: 120px;
+	height: 200px;
+	background: #D1DDE5;
+	border-radius: 9999px;
+	box-shadow: inset -4px 0px 0 rgb(0 0 0 / 30%),inset 4px 6px 0px rgb(255 255 255 /90%);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: absolute;
+	top: 80px;
+}
+.inner {
+	width: 100px;
+	height: 180px;
+	border-radius: 9999px;
+	background: #F57E15;
+	box-shadow:  -4px -2px 0 rgb(0 0 0 / 30%), 4px 6px 0px rgb(255 255 255 /90%);
+	
+}
+
+.lock-body {
+	width: 160px;
+	height: 160px;
+	background: #D1DDE5;
+	border-radius: 50%;
+	position: absolute;
+	top: 160px;
+	box-shadow: 2px 4px 10px 0px  rgba(0,0,0, 0.3), inset -1px -2px 0 0 rgb(0 0 0 / 40%), inset 4px 4px 0 0 rgb(255 255 255 / 90%);
+	display:flex;
+	align-items: center;
+	justify-content: center;
+	
+}
+.lock-body {
+	cursor: pointer;
+
+}
+.circle {
+		transition: 1.5s transform ease-in-out;
+}
+.lock-body:hover {
+	.circle {
+		transform: translate3d(0, 0,0) rotate(360deg);
+	}
+}
+.circle {
+	width: 150px;
+	height: 150px;
+	border-radius: 50%;
+	background: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.item {
+	// transform: translateY(-40px)
+}
+
+.linel {
+	width: 2px;
+	height: 130px;
+	background: #fff;
+	clip-path:  circle(40%);
+}
+// .lines {
+// 	transform: rotate(15deg);
+// 	transform-origin: 50% 50%;
+// }
+
+
+.mid {
+	width: 40px;
+	height: 40px;
+	position: absolute;
+	background: #D1DDE5;
+	border-radius: 50%;
+	box-shadow: inset 3px 3px 0 0 rgb(255 255 255 / 80%), inset -2px -2px 0 0 rgb(0 0 0 /20%)
+}
